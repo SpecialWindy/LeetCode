@@ -40,8 +40,10 @@ public class LinkList {
         addNode(8);
         addNode(9);
         traverse(head);
-//        removeNthFromEnd(head,3);
-//        traverse(head);
+        removeNthFromEnd(head,3);
+        traverse(head);
+        int midNode = searchMid(head.next);
+        System.out.println(midNode);
 
         ListNode newHead = new ListNode();
 
@@ -137,5 +139,21 @@ public class LinkList {
      */
     public static void insertNode(ListNode head, int index, int val) {
 
+    }
+
+    /**
+     * 查找链表中间结点
+     * @param head
+     * @return
+     */
+    public static int searchMid(ListNode head) {
+        ListNode p = head;
+        ListNode q = head;
+
+        while(q.next != null && q.next.next != null) {
+            p = p.next;
+            q = q.next.next;
+        }
+        return p.val;
     }
 }
